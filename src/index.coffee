@@ -1,6 +1,4 @@
-{
-  toActionsTypes
-} = require 'cfx.redux-types'
+import { toActionsTypes } from 'cfx.redux-types'
 
 crudActionsTypes = (routeName) ->
   routeName = routeName.toUpperCase()
@@ -19,6 +17,6 @@ crudActionsTypes = (routeName) ->
     }
   toActionsTypes r
 
-module.exports = {
+export default {
   crudActionsTypes
 }
