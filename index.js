@@ -1,1 +1,3 @@
-module.exports = require('./dest/index.js').default;
+export {
+  crudActionsTypes
+} from 'src'

@@ -2,21 +2,23 @@ import { toActionsTypes } from 'cfx.redux-types'
 
 crudActionsTypes = (routeName) ->
   routeName = routeName.toUpperCase()
-  r = {}
-  for kw in [
+  toActionsTypes [
     'FETCH'
     'CREATE'
     'UPDATE'
     'DELETE'
-  ]
-    Object.assign r, {
-      "#{routeName}_#{kw}"
-      "#{routeName}_#{kw}_START"
-      "#{routeName}_#{kw}_SUCCESS"
-      "#{routeName}_#{kw}_ERROR"
+  ].reduce (r, c) ->
+    {
+      r...
+      {
+        "#{routeName}_#{c}"
+        "#{routeName}_#{c}_START"
+        "#{routeName}_#{c}_SUCCESS"
+        "#{routeName}_#{c}_ERROR"
+      }...
     }
-  toActionsTypes r
+  , {}
 
-export default {
+export {
   crudActionsTypes
 }
